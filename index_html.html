@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Password Generator</h1>
+            <p>Create strong, secure passwords</p>
+        </header>
+
+        <div class="card">
+            <div class="password-display">
+                <div id="password-text" class="password-placeholder">Click Generate to create password</div>
+                <button id="copy-btn" class="copy-btn" title="Copy to clipboard" style="display: none;">
+                    <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="strength-meter">
+                <div class="strength-title">
+                    <span class="strength-label">Password Strength</span>
+                    <span id="strength-text" class="strength-text">-</span>
+                </div>
+                <div class="strength-bars">
+                    <div id="bar-1" class="strength-bar"></div>
+                    <div id="bar-2" class="strength-bar"></div>
+                    <div id="bar-3" class="strength-bar"></div>
+                    <div id="bar-4" class="strength-bar"></div>
+                </div>
+            </div>
+
+            <h3 class="options-title">Customize your password</h3>
+
+            <div class="option-group">
+                <div class="range-slider">
+                    <label for="length">Length:</label>
+                    <input type="range" id="length" min="8" max="32" value="16" class="slider">
+                    <span id="length-value" class="length-value">16</span>
+                </div>
+
+                <div class="option-row">
+                    <label class="checkbox-control option-label">
+                        <input type="checkbox" id="uppercase" checked>
+                        <span class="checkmark"></span>
+                        Include Uppercase
+                    </label>
+                </div>
+
+                <div class="option-row">
+                    <label class="checkbox-control option-label">
+                        <input type="checkbox" id="lowercase" checked>
+                        <span class="checkmark"></span>
+                        Include Lowercase
+                    </label>
+                </div>
+
+                <div class="option-row">
+                    <label class="checkbox-control option-label">
+                        <input type="checkbox" id="numbers" checked>
+                        <span class="checkmark"></span>
+                        Include Numbers
+                    </label>
+                </div>
+
+                <div class="option-row">
+                    <label class="checkbox-control option-label">
+                        <input type="checkbox" id="symbols" checked>
+                        <span class="checkmark"></span>
+                        Include Symbols
+                    </label>
+                </div>
+            </div>
+
+            <button id="generate-btn" class="generate-btn">
+                <svg class="generate-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Generate Password
+            </button>
+        </div>
+
+        <div class="card history-section">
+            <div class="history-title">
+                <span>Recently Generated</span>
+                <button id="clear-history" class="clear-history">Clear All</button>
+            </div>
+            <ul id="history-list" class="history-list">
+                <li class="no-history">No passwords generated yet</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

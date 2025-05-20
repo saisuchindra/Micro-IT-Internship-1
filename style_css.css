@@ -1,0 +1,408 @@
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --bg-color: #f5f7fb;
+    --card-bg: white;
+    --text-color: #1f2937;
+    --border-color: #e5e7eb;
+    --slider-color: #4f46e5;
+    --slider-bg: #e5e7eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+header p {
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.password-display {
+    background-color: #f9fafb;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-family: monospace;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-text {
+    word-break: break-all;
+}
+
+.password-placeholder {
+    color: #9ca3af;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: #6b7280;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.copy-btn:hover {
+    opacity: 1;
+}
+
+.copy-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.options-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.option-group {
+    margin-bottom: 1.5rem;
+}
+
+.option-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.option-label {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Slider styles */
+.range-slider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.range-slider input {
+    flex: 1;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--slider-bg);
+    outline: none;
+}
+
+.range-slider input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--slider-color);
+    cursor: pointer;
+}
+
+.range-slider input::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--slider-color);
+    cursor: pointer;
+    border: none;
+}
+
+.length-value {
+    font-size: 1.25rem;
+    font-weight: 500;
+    min-width: 40px;
+    text-align: center;
+    color: var(--primary);
+}
+
+/* Checkbox styles */
+.checkbox-control {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+}
+
+.checkbox-control input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.checkbox-control:hover input ~ .checkmark {
+    background-color: #f9fafb;
+}
+
+.checkbox-control input:checked ~ .checkmark {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-control input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-control .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Generate button */
+.generate-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.generate-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.generate-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Strength meter */
+.strength-meter {
+    margin-bottom: 1.5rem;
+}
+
+.strength-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.strength-label {
+    color: #6b7280;
+}
+
+.strength-text {
+    font-weight: 500;
+}
+
+.strength-text.weak {
+    color: #ef4444;
+}
+
+.strength-text.medium {
+    color: #f59e0b;
+}
+
+.strength-text.strong {
+    color: #10b981;
+}
+
+.strength-text.very-strong {
+    color: #047857;
+}
+
+.strength-bars {
+    display: flex;
+    gap: 4px;
+}
+
+.strength-bar {
+    height: 8px;
+    flex: 1;
+    border-radius: 4px;
+    background-color: var(--border-color);
+    transition: background-color 0.3s;
+}
+
+.strength-bar.active.weak {
+    background-color: #ef4444;
+}
+
+.strength-bar.active.medium {
+    background-color: #f59e0b;
+}
+
+.strength-bar.active.strong {
+    background-color: #10b981;
+}
+
+.strength-bar.active.very-strong {
+    background-color: #047857;
+}
+
+/* History section */
+.history-section {
+    margin-top: 1rem;
+}
+
+.history-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clear-history {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.clear-history:hover {
+    color: #ef4444;
+    text-decoration: underline;
+}
+
+.history-list {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    font-family: monospace;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-password {
+    margin-right: 0.5rem;
+    word-break: break-all;
+}
+
+.history-copy {
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+.history-copy:hover {
+    color: var(--primary-hover);
+}
+
+.no-history {
+    padding: 1rem;
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 1rem;
+    }
+
+    .password-display {
+        font-size: 1.25rem;
+    }
+}
